@@ -4,7 +4,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -24,6 +25,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
 # Windows thumbnail cache files
 Thumbs.db
 Thumbs.db:encryptable
@@ -48,6 +50,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
 # Logs
 logs
 *.log
