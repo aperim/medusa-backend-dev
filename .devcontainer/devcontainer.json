@@ -1,0 +1,46 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/javascript-node-postgres
+// Update the VARIANT arg in docker-compose.yml to pick a Node.js version
+{
+	"name": "Medusa Backend Development",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"ms-azuretools.vscode-docker",
+				"GitHub.copilot",
+				"redhat.vscode-yaml",
+				"GitHub.vscode-pull-request-github",
+				"yzhang.markdown-all-in-one",
+				"ckolkman.vscode-postgres",
+				"ms-vscode.vscode-typescript-next",
+				"GraphQL.vscode-graphql",
+				"esbenp.prettier-vscode",
+				"stevencl.addDocComments"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or with the host.
+	"forwardPorts": [3000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "rm -Rf ./dist && yarn install && yarn build && yarn seed",
+	"initializeCommand": "if [ ! -f .env ]; then cp .env.example .env; fi",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node",
+	"features": {
+		"docker-from-docker": "latest",
+		"git": "latest",
+		"github-cli": "latest"
+	}
+}
